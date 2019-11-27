@@ -1,0 +1,387 @@
+/*
+ *  GENERAL
+ */
+body {
+  font-family: 'Open Sans';
+  background-color: #f5f5f5;
+  color: #000;
+  position: relative;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+u {
+  text-decoration: none;
+  border-bottom: 4px solid black;
+  line-height: 1;
+  display: inline-block;
+}
+
+h1 {
+  margin: 0;
+}
+
+h2 {
+  /* TODO: Change units across all CSS? */
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1.38;
+}
+
+h3 {
+  font-size: 21px;
+  font-weight: 700;
+  margin: 0.8em 0;
+}
+
+h4 {
+  display: inline;
+  margin: 0;
+  background-color: #f5f5f5;
+  color: #000;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.35em;
+}
+
+::selection {
+  color: #fff;
+  background: #E64545;
+}
+
+/*
+ *  HEADER
+ */
+.landing {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  height: calc(100vh - 3em);
+  padding: 1.5em;
+}
+
+header {
+  margin-bottom: 1em;
+}
+
+.logo {
+  background-image: url('../img/valerie-rogalska-logo.svg');
+  background-repeat: no-repeat;
+  background-position: center left;
+  background-size: contain;
+  height: 1.8em;
+  width: 3.2em;
+  color: transparent;
+}
+
+.logo-container {
+  height: 15vh;
+}
+
+.lang-switch-mobile {
+  align-self: flex-end;
+  width: 100%;
+  font-size: 13px;
+}
+
+.lang-each:first-child {
+  margin-left: -0.3em;
+}
+
+.lang-each {
+  padding: 0.5em 0.3em;
+}
+
+.lang-selected {
+  font-weight: 700;
+}
+
+/*
+ *  ABOUT ME
+ */
+ .about-me {
+   position: absolute;
+   top: 0;
+   left: 0;
+   height: calc(100vh - 3em);
+   width: calc(100% - 3em);
+   padding: 1.5em;
+ }
+
+ .about-inner {
+  margin-top: 15vh;
+}
+
+
+/*
+ *  PROJECTS
+ */
+.portfolio {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.portfolio-container {
+  width: 100%;
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-link {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.portfolio-image {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  min-height: 17em;
+}
+
+.portfolio-inner {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 1em 1.5em;
+  transform: translateY(150%);
+  opacity: 0;
+  transition: transform 500ms ease-in, opacity 500ms ease-in-out 250ms;
+}
+
+.portfolio-inner.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.portfolio-tags {
+  display: block;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.tag {
+  background-color: black;
+  color: #000;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .3px;
+  text-transform: uppercase;
+  padding: 2px 3px;
+  margin-right: 3px;
+  opacity: 0;
+}
+
+.is-visible .tag {
+  color: #fff;
+  opacity: 1;
+}
+
+.tag:first-child {
+  transition: opacity 400ms ease-in 400ms, color 300ms ease 400ms;
+}
+
+.tag:nth-child(2) {
+  transition: opacity 400ms ease-in 500ms, color 300ms ease 500ms;
+}
+
+.tag:nth-child(3) {
+  transition: opacity 400ms ease-in 600ms, color 300ms ease 600ms;
+}
+
+.tag:nth-child(4) {
+  transition: opacity 400ms ease-in 700ms, color 300ms ease 700ms;
+}
+
+
+/*
+ *  CONTACT
+ */
+.contact {
+  padding: 4em 1.5em 8em 1.5em;
+}
+
+ .contact-form-container {
+  position: relative;
+}
+
+.contact-textarea {
+  resize: none;
+  overflow: hidden;
+}
+
+.contact-submit {
+  cursor: pointer;
+  font-weight: 700;
+  color: #000;
+  border: 3px solid #000;
+  background: transparent;
+  height: 50px;
+  transition: color 150ms ease;
+}
+
+.clicked .contact-submit {
+  color: #fff;
+}
+
+.button-effect {
+  display: block;
+  position: relative;
+  background: #fff;
+  overflow: hidden;
+}
+
+.button-effect::before, .button-effect::after {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.button-effect::before {
+    content: "";
+    position: absolute;
+    left: -100%;
+    background: #000;
+}
+
+.button-effect::after {
+    content: "thanks!";
+    position: absolute;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.button-effect.clicked::before {
+  animation: button-progress 4000ms ease-in-out;
+}
+
+.button-effect.clicked::after {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 500ms ease 700ms;
+}
+
+@keyframes button-progress {
+  0% {
+    left: -100%;
+  }
+  10% {
+    left: -18%;
+  }
+  15% {
+    left: -14%;
+  }
+  20%, 96% {
+    left: 0;
+    opacity: 1;
+  }
+  100% {
+    left: 0;
+    opacity: 0;
+  }
+}
+
+.contact-label {
+  position: absolute;
+  pointer-events: none;
+  top: 10px;
+  left: 0;
+  font-size: 15.5px;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.contact-input,
+.contact-textarea,
+.contact-submit {
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: none;
+  padding: 10px 0;
+  outline: none;
+}
+
+.contact-input,
+.contact-textarea {
+  margin-bottom: 30px;
+  height: 43px;
+  outline: none;
+  border: none;
+  border-bottom: 3px solid #000;
+  background: transparent;
+  font-size: 16px;
+  line-height: 1.35;
+  font-weight: 400;
+  transition: border 500ms;
+}
+
+.contact-input:focus ~ .contact-label,
+.contact-textarea:focus ~ .contact-label,
+.contact-input:not(:placeholder-shown) ~ .contact-label,
+.contact-textarea:valid ~ .contact-label {
+  transform: translateY(-115%);
+  font-size: 13px;
+  left: 0;
+}
+
+.contact-input:focus,
+.contact-textarea:focus {
+  border-color: #E64545;
+}
+
+/*
+ *  FOOTER
+ */
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #000;
+}
+
+.footer-github,
+.footer-codepen {
+  width: 100%;
+}
+
+.footer-github {
+  margin: 1.5em;
+}
+
+.footer-codepen {
+  margin: 0 1.5em 4em 1.5em;
+}
+
+.footer-img-link {
+  display: inline-block;
+  margin-left: -10px;
+  padding: 10px;
+}
+
+.footer-logo {
+  display: block;
+  width: 1.6em;
+}
+
+.footer-text,
+.footer-link {
+  margin: 0;
+  font-size: 14px;
+  color: #fff;
+}
+
+.footer-link {
+  font-weight: 700;
+}
