@@ -392,3 +392,50 @@ footer {
 .footer-link {
   font-weight: 700;
 }
+
+/*
+ *  MEDIAQUERIES
+ */
+@media (min-width: 600px) {
+  body {
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas:
+      "header about"
+      "header portfolio"
+      "header contact-form"
+      "footer footer";
+  }
+.landing {
+  background-color: white;
+}
+.lang-switch-mobile {
+  display: none;
+}
+footer {
+  grid-template-columns: minmax(150.4px, 2fr) 5fr 5fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    ". github codepen";
+  background-color: #1f1f1f;
+}
+
+.footer-github, .footer-codepen {
+  background-color: black;
+}
+
+.footer-github {
+  padding: 1.5em;
+}
+
+.footer-codepen {
+  padding: 1.5em;
+}
+}
+
+@media (min-width: 800px) {
+  .portfolio {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+}
