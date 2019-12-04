@@ -1,11 +1,25 @@
 /*
  *  GENERAL
  */
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Open Sans';
   background-color: #f5f5f5;
   color: #000;
-  position: relative;
+  display: grid;
+  margin: 0;
+  min-height: 100vh;
+  grid-template-columns: 1fr;
+  grid-template-rows: 20vh 80vh repeat(3, min-content);
+  grid-template-areas:
+    "header"
+    "about"
+    "portfolio"
+    "contact-form"
+    "footer";
 }
 
 a {
@@ -56,15 +70,8 @@ h4 {
  *  HEADER
  */
 .landing {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: space-between;
-  height: calc(100vh - 3em);
   padding: 1.5em;
-}
-
-header {
-  margin-bottom: 1em;
+  grid-area: header;
 }
 
 .logo {
@@ -77,13 +84,9 @@ header {
   color: transparent;
 }
 
-.logo-container {
-  height: 15vh;
-}
-
 .lang-switch-mobile {
-  align-self: flex-end;
-  width: 100%;
+  position: absolute;
+  bottom: 1.5em;
   font-size: 13px;
 }
 
@@ -103,25 +106,19 @@ header {
  *  ABOUT ME
  */
  .about-me {
-   position: absolute;
-   top: 0;
-   left: 0;
-   height: calc(100vh - 3em);
-   width: calc(100% - 3em);
+   width: 100%;
    padding: 1.5em;
+   grid-area: about;
  }
-
- .about-inner {
-  margin-top: 15vh;
-}
-
 
 /*
  *  PROJECTS
  */
 .portfolio {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-area: portfolio;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, 1fr);
 }
 
 .portfolio-container {
@@ -149,9 +146,9 @@ header {
   bottom: 0;
   left: 0;
   margin: 1em 1.5em;
-  transform: translateY(150%);
+  transform: translateY(70%);
   opacity: 0;
-  transition: transform 500ms ease-in, opacity 500ms ease-in-out 250ms;
+  transition: transform 400ms ease-in, opacity 450ms ease-in-out 150ms;
 }
 
 .portfolio-inner.is-visible {
@@ -205,6 +202,7 @@ header {
  */
 .contact {
   padding: 4em 1.5em 8em 1.5em;
+  grid-area: contact-form;
 }
 
  .contact-form-container {
@@ -346,8 +344,15 @@ header {
  *  FOOTER
  */
 footer {
-  display: flex;
-  flex-wrap: wrap;
+  grid-area: footer;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 5fr 5fr 1fr;
+  grid-template-areas:
+    "github"
+    "codepen"
+    ".";
+  width: 100%;
   background-color: #000;
 }
 
@@ -357,11 +362,13 @@ footer {
 }
 
 .footer-github {
-  margin: 1.5em;
+  padding: 1.5em;
+  grid-area: github;
 }
 
 .footer-codepen {
-  margin: 0 1.5em 4em 1.5em;
+  padding: 0 1.5em 1.5em 1.5em;
+  grid-area: codepen;
 }
 
 .footer-img-link {
