@@ -9,6 +9,7 @@ body {
   font-family: 'Open Sans';
   background-color: #f5f5f5;
   color: #000;
+  font-size: 16px;
   display: grid;
   margin: 0;
   min-height: 100vh;
@@ -40,13 +41,13 @@ h1 {
 
 h2 {
   /* TODO: Change units across all CSS? */
-  font-size: 25px;
+  font-size: 1.5rem;
   font-weight: 700;
   line-height: 1.38;
 }
 
 h3 {
-  font-size: 21px;
+  font-size: 1.3rem;
   font-weight: 700;
   margin: 0.8em 0;
 }
@@ -56,7 +57,7 @@ h4 {
   margin: 0;
   background-color: #f5f5f5;
   color: #000;
-  font-size: 19px;
+  font-size: 1.18rem;
   font-weight: 400;
   line-height: 1.35em;
 }
@@ -87,7 +88,7 @@ h4 {
 .lang-switch-mobile {
   position: absolute;
   bottom: 1.5em;
-  font-size: 13px;
+  font-size: 0.8rem;
 }
 
 .lang-each:first-child {
@@ -110,6 +111,10 @@ h4 {
    padding: 1.5em;
    grid-area: about;
  }
+
+ .about-inner {
+  max-width: 53ch;
+}
 
 /*
  *  PROJECTS
@@ -165,7 +170,7 @@ h4 {
 .tag {
   background-color: black;
   color: #000;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 700;
   line-height: 1;
   letter-spacing: .3px;
@@ -201,6 +206,7 @@ h4 {
  *  CONTACT
  */
 .contact {
+  max-width: 800px;
   padding: 4em 1.5em 8em 1.5em;
   grid-area: contact-form;
 }
@@ -297,7 +303,7 @@ h4 {
   pointer-events: none;
   top: 10px;
   left: 0;
-  font-size: 15.5px;
+  font-size: .95rem;
   font-weight: 700;
   transition: 0.3s;
 }
@@ -320,7 +326,7 @@ h4 {
   border: none;
   border-bottom: 3px solid #000;
   background: transparent;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.35;
   font-weight: 400;
   transition: border 500ms;
@@ -331,7 +337,7 @@ h4 {
 .contact-input:not(:placeholder-shown) ~ .contact-label,
 .contact-textarea:valid ~ .contact-label {
   transform: translateY(-115%);
-  font-size: 13px;
+  font-size: 0.8rem;
   left: 0;
 }
 
@@ -385,7 +391,7 @@ footer {
 .footer-text,
 .footer-link {
   margin: 0;
-  font-size: 14px;
+  font-size: 0.87rem;
   color: #fff;
 }
 
@@ -406,36 +412,45 @@ footer {
       "header contact-form"
       "footer footer";
   }
-.landing {
-  background-color: white;
-}
-.lang-switch-mobile {
-  display: none;
-}
-footer {
-  grid-template-columns: minmax(150.4px, 2fr) 5fr 5fr;
-  grid-template-rows: auto;
-  grid-template-areas:
-    ". github codepen";
-  background-color: #1f1f1f;
+
+  .landing {
+    background-color: white;
+  }
+
+  .lang-switch-mobile {
+    display: none;
+  }
+
+  .about-me {
+    padding: 4em 1.5em 8em 1.5em;
+  }
+
+  footer {
+    grid-template-columns: minmax(150.4px, 2fr) 5fr 5fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      ". github codepen";
+    background-color: #1f1f1f;
+  }
+
+  .footer-github, .footer-codepen {
+    background-color: black;
+    padding: 1.5em 1.5em 4em 1.5em;
+  }
 }
 
-.footer-github, .footer-codepen {
-  background-color: black;
-}
-
-.footer-github {
-  padding: 1.5em;
-}
-
-.footer-codepen {
-  padding: 1.5em;
-}
-}
-
-@media (min-width: 800px) {
+@media (min-width: 850px) {
   .portfolio {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
 }
+  h2 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  h2 {
+    font-size: 1.9rem;
+  }
 }
