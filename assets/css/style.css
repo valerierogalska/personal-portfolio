@@ -206,7 +206,7 @@ h4 {
  *  CONTACT
  */
 .contact {
-  max-width: 800px;
+  max-width: 900px;
   padding: 4em 1.5em 8em 1.5em;
   grid-area: contact-form;
 }
